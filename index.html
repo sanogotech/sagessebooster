@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>150 Sagesses Opérationnelles | Devenir un Sage Efficace</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-brain me-2"></i>Portail Sagesse
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#dashboard"><i class="fas fa-home me-1"></i> Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#categories"><i class="fas fa-list me-1"></i> Catégories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quiz"><i class="fas fa-question-circle me-1"></i> Quiz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#simulations"><i class="fas fa-chess me-1"></i> Simulations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#progress"><i class="fas fa-chart-line me-1"></i> Progression</a></li>
+                </ul>
+                <div class="ms-3">
+                    <span class="badge bg-primary" id="user-points">0 pts</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-white">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeIn">150 Sagesses Opérationnelles</h1>
+                    <p class="lead mb-5 animate__animated animate__fadeIn animate__delay-1s">De la connaissance à la maîtrise : le chemin pour devenir un sage efficace</p>
+                    <button class="btn btn-light btn-lg animate__animated animate__bounceIn animate__delay-2s me-3" id="start-journey">
+                        <i class="fas fa-play me-2"></i>Commencer
+                    </button>
+                    <button class="btn btn-outline-light btn-lg animate__animated animate__bounceIn animate__delay-2s" onclick="showVideoIntro()">
+                        <i class="fas fa-video me-2"></i>Vidéo intro
+                    </button>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <img src="https://img.icons8.com/color/480/000000/brain.png" alt="Icône cerveau" class="img-fluid animate__animated animate__pulse animate__infinite">
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Dashboard Main -->
+    <main id="dashboard" class="container my-5 pt-4">
+        <div class="row">
+            <!-- Sidebar Categories -->
+            <div class="col-lg-3 mb-4">
+                <div class="card shadow-sm sticky-top sidebar-card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-tags me-2"></i>Catégories</h5>
+                    </div>
+                    <div class="list-group list-group-flush" id="categories-sidebar">
+                        <!-- Dynamically filled from JS -->
+                    </div>
+                    <div class="card-footer bg-light">
+                        <button class="btn btn-sm btn-outline-primary w-100" onclick="resetFilters()">
+                            <i class="fas fa-sync-alt me-1"></i>Tout afficher
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Progress Card -->
+                <div class="card shadow-sm mt-4">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="fas fa-chart-pie me-2"></i>Votre Progression</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <h6>Complétion globale</h6>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" id="global-progress" role="progressbar"></div>
+                            </div>
+                            <small class="text-muted" id="progress-text">0% complété</small>
+                        </div>
+                        <div class="mb-3">
+                            <h6>Points de sagesse</h6>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-star text-warning me-2"></i>
+                                <span class="fw-bold" id="points-display">0</span>
+                                <span class="ms-auto text-muted">/ 1500 max</span>
+                            </div>
+                        </div>
+                        <div class="achievements">
+                            <h6>Badges</h6>
+                            <div class="d-flex flex-wrap" id="badges-container">
+                                <!-- Badges will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Wisdom of the Day -->
+                <div class="card shadow-sm mb-4 wisdom-card pulse">
+                    <div class="card-header bg-info text-white">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-sun me-2"></i>Sagesse du Jour</h5>
+                            <button class="btn btn-sm btn-outline-light" onclick="loadWisdomOfTheDay()">
+                                <i class="fas fa-redo"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body" id="wisdom-of-the-day">
+                        <!-- Dynamically filled from JS -->
+                    </div>
+                </div>
+                
+                <!-- Wisdom Explorer -->
+                <div class="card shadow-sm">
+                    <div class="card-header bg-gradient-purple text-white">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-compass me-2"></i>Explorer les Sagesses</h5>
+                            <div class="input-group" style="width: 300px;">
+                                <input type="text" class="form-control form-control-sm" placeholder="Rechercher..." id="search-wisdom">
+                                <button class="btn btn-sm btn-outline-light" type="button" id="search-button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-4">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-outline-secondary btn-sm active" data-sort="recent">
+                                    <i class="fas fa-clock me-1"></i>Récent
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm" data-sort="popular">
+                                    <i class="fas fa-fire me-1"></i>Populaire
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm" data-sort="points">
+                                    <i class="fas fa-star me-1"></i>Points
+                                </button>
+                            </div>
+                            <div class="text-muted">
+                                <span id="wisdom-count">150</span> sagesses disponibles
+                            </div>
+                        </div>
+                        
+                        <div class="row" id="wisdom-cards-container">
+                            <!-- Dynamically filled from JS -->
+                        </div>
+                        
+                        <div class="d-flex justify-content-center mt-4">
+                            <nav>
+                                <ul class="pagination" id="pagination">
+                                    <!-- Pagination will be added here -->
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Quiz Modal -->
+    <div class="modal fade" id="quizModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-dark">
+                    <h5 class="modal-title"><i class="fas fa-question-circle me-2"></i>Testez Votre Sagesse</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="quiz-content">
+                    <!-- Dynamically filled from JS -->
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <div>
+                        Question <span id="current-question">1</span>/<span id="total-questions">5</span>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            <i class="fas fa-times me-1"></i>Quitter
+                        </button>
+                        <button type="button" class="btn btn-primary" id="next-question">
+                            <i class="fas fa-arrow-right me-1"></i>Suivant
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simulation Modal -->
+    <div class="modal fade" id="simulationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header bg-purple text-white">
+                    <h5 class="modal-title"><i class="fas fa-chess-board me-2"></i>Mise en Pratique</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="simulation-content">
+                    <!-- Dynamically filled from JS -->
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <div class="simulation-progress">
+                        <div class="progress" style="height: 8px; width: 200px;">
+                            <div class="progress-bar bg-success" id="simulation-progress-bar" role="progressbar"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            <i class="fas fa-times me-1"></i>Quitter
+                        </button>
+                        <button type="button" class="btn btn-success" id="simulation-next">
+                            <i class="fas fa-forward me-1"></i>Continuer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title"><i class="fas fa-video me-2"></i>Introduction à la Sagesse Opérationnelle</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/7wtfhZwyrcc" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Commencer le voyage</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5><i class="fas fa-brain me-2"></i>Portail Sagesse</h5>
+                    <p class="text-muted">De la connaissance à la maîtrise : votre guide pour devenir un sage opérationnel efficace.</p>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5>Navigation</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link ps-0" href="#dashboard">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link ps-0" href="#categories">Catégories</a></li>
+                        <li class="nav-item"><a class="nav-link ps-0" href="#quiz">Quiz</a></li>
+                        <li class="nav-item"><a class="nav-link ps-0" href="#simulations">Simulations</a></li>
+                        <li class="nav-item"><a class="nav-link ps-0" href="#progress">Progression</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Contact</h5>
+                    <p class="text-muted mb-2"><i class="fas fa-envelope me-2"></i>contact@sagesse-operationnelle.com</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="text-center text-muted">
+                <small>© 2023 Portail Sagesse Opérationnelle. Tous droits réservés.</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+</body>
+</html>
