@@ -85,6 +85,10 @@ body {
     100% { transform: scale(1); }
 }
 
+#wisdom-of-the-day {
+    transition: opacity 0.3s ease-in-out;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .hero-section {

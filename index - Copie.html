@@ -38,12 +38,13 @@
             <div class="col-lg-8">
                 <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeIn">150 Sagesses Opérationnelles</h1>
                 <p class="lead mb-5 animate__animated animate__fadeIn animate__delay-1s">La connaissance pour agir, la sagesse pour bien agir</p>
-                <button class="btn btn-light btn-lg animate__animated animate__bounceIn animate__delay-2s me-3" id="start-journey">
-                    <i class="fas fa-play me-2"></i>Commencer le voyage
-                </button>
-                <button class="btn btn-outline-light btn-lg animate__animated animate__bounceIn animate__delay-2s" onclick="showVideoIntro()">
-                    <i class="fas fa-video me-2"></i>Vidéo intro
-                </button>
+                <p class="lead mb-5 animate__animated animate__fadeIn animate__delay-1s">De la connaissance à la maîtrise : le chemin pour devenir un sage efficace</p>
+                    <button class="btn btn-light btn-lg animate__animated animate__bounceIn animate__delay-2s me-3" id="start-journey">
+                        <i class="fas fa-play me-2"></i>Commencer
+                    </button>
+                    <button class="btn btn-outline-light btn-lg animate__animated animate__bounceIn animate__delay-2s" onclick="showVideoIntro()">
+                        <i class="fas fa-video me-2"></i>Vidéo intro
+                    </button>
             </div>
             <div class="col-lg-4 d-none d-lg-block">
                 <img src="https://img.icons8.com/color/480/000000/brain.png" alt="Icône cerveau" class="img-fluid animate__animated animate__pulse animate__infinite">
@@ -64,7 +65,7 @@
             </div>
         </div>
 
-        <div class="col-lg-9">
+     <!--    <div class="col-lg-9">
             <div class="card shadow-sm mb-4">
                 <div class="card-header bg-info text-white">
                     <h5 class="mb-0">Sagesse du Jour</h5>
@@ -80,7 +81,29 @@
                     <div class="row" id="wisdom-cards-container"></div>
                 </div>
             </div>
-        </div>
+        </div> -->
+		<div class="col-lg-9">
+			<div class="card shadow-sm mb-4">
+				<div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+					<h5 class="mb-0">Sagesse du Jour</h5>
+					<button class="btn btn-sm btn-light" id="refresh-wisdom">
+						<i class="fas fa-sync-alt"></i> Nouvelle sagesse
+					</button>
+				</div>
+				<div class="card-body" id="wisdom-of-the-day"></div>
+				
+				<div class="card shadow-sm">
+					<div class="card-header bg-success text-white">
+						<h5 class="mb-0">Explorer les Sagesses</h5>
+					</div>
+					<div class="card-body">
+						<div class="row" id="wisdom-cards-container"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
     </div>
 </main>
 
@@ -448,7 +471,7 @@
 </section>
 
 <section id="ressources-section" class="container my-5 animate__animated animate__fadeInUp">
-
+<br><br><br><br>
     <div class="card shadow-lg border-0 rounded-3">
         <div class="card-header bg-info text-white p-4 rounded-top-3 d-flex align-items-center">
             <i class="fas fa-book-reader fa-2x me-3 opacity-75"></i>
