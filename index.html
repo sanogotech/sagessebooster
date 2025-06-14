@@ -3,297 +3,590 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>150 Sagesses Opérationnelles | Devenir un Sage Efficace</title>
+    <title>Portail de Sagesse Opérationnelle</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-brain me-2"></i>Portail Sagesse
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#dashboard"><i class="fas fa-home me-1"></i> Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#categories"><i class="fas fa-list me-1"></i> Catégories</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#quiz"><i class="fas fa-question-circle me-1"></i> Quiz</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#simulations"><i class="fas fa-chess me-1"></i> Simulations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#progress"><i class="fas fa-chart-line me-1"></i> Progression</a></li>
-                </ul>
-                <div class="ms-3">
-                    <span class="badge bg-primary" id="user-points">0 pts</span>
-                </div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-brain me-2"></i>Portail Sagesse
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#dashboard">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="#strategie-section">Stratégies & Décision</a></li>
+                <li class="nav-item"><a class="nav-link" href="#erreurs-section">Top Erreurs à éviter</a></li>
+                <li class="nav-item"><a class="nav-link" href="#checklist-section">Checklists & Bonnes Pratiques</a></li>
+                <li class="nav-item"><a class="nav-link" href="#evaluation-section">Auto-évaluation</a></li>
+                <li class="nav-item"><a class="nav-link" href="#ressources-section">Ressources Utiles</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="hero-section text-white">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeIn">150 Sagesses Opérationnelles</h1>
+                <p class="lead mb-5 animate__animated animate__fadeIn animate__delay-1s">La connaissance pour agir, la sagesse pour bien agir</p>
+                <button class="btn btn-light btn-lg animate__animated animate__bounceIn animate__delay-2s me-3" id="start-journey">
+                    <i class="fas fa-play me-2"></i>Commencer le voyage
+                </button>
+                <button class="btn btn-outline-light btn-lg animate__animated animate__bounceIn animate__delay-2s" onclick="showVideoIntro()">
+                    <i class="fas fa-video me-2"></i>Vidéo intro
+                </button>
+            </div>
+            <div class="col-lg-4 d-none d-lg-block">
+                <img src="https://img.icons8.com/color/480/000000/brain.png" alt="Icône cerveau" class="img-fluid animate__animated animate__pulse animate__infinite">
             </div>
         </div>
-    </nav>
+    </div>
+</header>
 
-    <!-- Hero Section -->
-    <header class="hero-section text-white">
-        <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeIn">150 Sagesses Opérationnelles</h1>
-                    <p class="lead mb-5 animate__animated animate__fadeIn animate__delay-1s">De la connaissance à la maîtrise : le chemin pour devenir un sage efficace</p>
-                    <button class="btn btn-light btn-lg animate__animated animate__bounceIn animate__delay-2s me-3" id="start-journey">
-                        <i class="fas fa-play me-2"></i>Commencer
-                    </button>
-                    <button class="btn btn-outline-light btn-lg animate__animated animate__bounceIn animate__delay-2s" onclick="showVideoIntro()">
-                        <i class="fas fa-video me-2"></i>Vidéo intro
-                    </button>
+<main id="dashboard" class="container my-5">
+	<br><br><br><br>
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card shadow-sm sticky-top" style="top: 80px;">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Catégories de Sagesse</h5>
                 </div>
-                <div class="col-lg-4 d-none d-lg-block">
-                    <img src="https://img.icons8.com/color/480/000000/brain.png" alt="Icône cerveau" class="img-fluid animate__animated animate__pulse animate__infinite">
-                </div>
+                <div class="list-group list-group-flush" id="categories-sidebar"></div>
             </div>
         </div>
-        <div class="wave-divider">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
-                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
-                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
-            </svg>
-        </div>
-    </header>
 
-    <!-- Dashboard Main -->
-    <main id="dashboard" class="container my-5 pt-4">
-        <div class="row">
-            <!-- Sidebar Categories -->
-            <div class="col-lg-3 mb-4">
-                <div class="card shadow-sm sticky-top sidebar-card">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0"><i class="fas fa-tags me-2"></i>Catégories</h5>
-                    </div>
-                    <div class="list-group list-group-flush" id="categories-sidebar">
-                        <!-- Dynamically filled from JS -->
-                    </div>
-                    <div class="card-footer bg-light">
-                        <button class="btn btn-sm btn-outline-primary w-100" onclick="resetFilters()">
-                            <i class="fas fa-sync-alt me-1"></i>Tout afficher
-                        </button>
-                    </div>
+        <div class="col-lg-9">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Sagesse du Jour</h5>
                 </div>
-
-                <!-- Progress Card -->
-                <div class="card shadow-sm mt-4">
-                    <div class="card-header bg-success text-white">
-                        <h5 class="mb-0"><i class="fas fa-chart-pie me-2"></i>Votre Progression</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <h6>Complétion globale</h6>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated" id="global-progress" role="progressbar"></div>
-                            </div>
-                            <small class="text-muted" id="progress-text">0% complété</small>
-                        </div>
-                        <div class="mb-3">
-                            <h6>Points de sagesse</h6>
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-star text-warning me-2"></i>
-                                <span class="fw-bold" id="points-display">0</span>
-                                <span class="ms-auto text-muted">/ 1500 max</span>
-                            </div>
-                        </div>
-                        <div class="achievements">
-                            <h6>Badges</h6>
-                            <div class="d-flex flex-wrap" id="badges-container">
-                                <!-- Badges will appear here -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="card-body" id="wisdom-of-the-day"></div>
             </div>
-            
-            <!-- Main Content -->
-            <div class="col-lg-9">
-                <!-- Wisdom of the Day -->
-                <div class="card shadow-sm mb-4 wisdom-card pulse">
-                    <div class="card-header bg-info text-white">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0"><i class="fas fa-sun me-2"></i>Sagesse du Jour</h5>
-                            <button class="btn btn-sm btn-outline-light" onclick="loadWisdomOfTheDay()">
-                                <i class="fas fa-redo"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body" id="wisdom-of-the-day">
-                        <!-- Dynamically filled from JS -->
-                    </div>
-                </div>
-                
-                <!-- Wisdom Explorer -->
-                <div class="card shadow-sm">
-                    <div class="card-header bg-gradient-purple text-white">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0"><i class="fas fa-compass me-2"></i>Explorer les Sagesses</h5>
-                            <div class="input-group" style="width: 300px;">
-                                <input type="text" class="form-control form-control-sm" placeholder="Rechercher..." id="search-wisdom">
-                                <button class="btn btn-sm btn-outline-light" type="button" id="search-button">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between mb-4">
-                            <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-outline-secondary btn-sm active" data-sort="recent">
-                                    <i class="fas fa-clock me-1"></i>Récent
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary btn-sm" data-sort="popular">
-                                    <i class="fas fa-fire me-1"></i>Populaire
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary btn-sm" data-sort="points">
-                                    <i class="fas fa-star me-1"></i>Points
-                                </button>
-                            </div>
-                            <div class="text-muted">
-                                <span id="wisdom-count">150</span> sagesses disponibles
-                            </div>
-                        </div>
-                        
-                        <div class="row" id="wisdom-cards-container">
-                            <!-- Dynamically filled from JS -->
-                        </div>
-                        
-                        <div class="d-flex justify-content-center mt-4">
-                            <nav>
-                                <ul class="pagination" id="pagination">
-                                    <!-- Pagination will be added here -->
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
 
-    <!-- Quiz Modal -->
-    <div class="modal fade" id="quizModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header bg-warning text-dark">
-                    <h5 class="modal-title"><i class="fas fa-question-circle me-2"></i>Testez Votre Sagesse</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Explorer les Sagesses</h5>
                 </div>
-                <div class="modal-body" id="quiz-content">
-                    <!-- Dynamically filled from JS -->
-                </div>
-                <div class="modal-footer justify-content-between">
-                    <div>
-                        Question <span id="current-question">1</span>/<span id="total-questions">5</span>
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                            <i class="fas fa-times me-1"></i>Quitter
-                        </button>
-                        <button type="button" class="btn btn-primary" id="next-question">
-                            <i class="fas fa-arrow-right me-1"></i>Suivant
-                        </button>
-                    </div>
+                <div class="card-body">
+                    <div class="row" id="wisdom-cards-container"></div>
                 </div>
             </div>
         </div>
     </div>
+</main>
 
-    <!-- Simulation Modal -->
-    <div class="modal fade" id="simulationModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header bg-purple text-white">
-                    <h5 class="modal-title"><i class="fas fa-chess-board me-2"></i>Mise en Pratique</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="simulation-content">
-                    <!-- Dynamically filled from JS -->
-                </div>
-                <div class="modal-footer justify-content-between">
-                    <div class="simulation-progress">
-                        <div class="progress" style="height: 8px; width: 200px;">
-                            <div class="progress-bar bg-success" id="simulation-progress-bar" role="progressbar"></div>
-                        </div>
-                    </div>
+<section id="strategie-section" class="container my-5 animate__animated animate__fadeInUp">
+<br><br><br><br>
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header bg-dark text-white p-4 rounded-top-3 d-flex align-items-center">
+            <i class="fas fa-chess-board fa-2x me-3 opacity-75"></i>
+            <h4 class="mb-0 fw-bold">Stratégies & Prise de Décision : L'Art de Naviguer</h4>
+        </div>
+        <div class="card-body p-4 p-md-5">
+            <p class="lead mb-4 text-dark">La sagesse opérationnelle réside dans la capacité à formuler et exécuter des stratégies éclairées. Une bonne décision n'est pas un coup de chance, mais le fruit d'une analyse rigoureuse et d'une vision claire. Voici des stratégies clés pour affûter votre sens de la décision et de la planification.</p>
+
+            <h5 class="mt-4 mb-3 text-dark fw-bold"><i class="fas fa-table me-2 text-primary"></i>Tableau des Stratégies Applicables</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Situation</th>
+                            <th scope="col">Stratégie Recommandée</th>
+                            <th scope="col">Objectif Principal</th>
+                            <th scope="col">Détails & Application</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold">Conflit d'équipe récurrent</td>
+                            <td><span class="badge bg-primary me-2"><i class="fas fa-comments"></i></span>Médiation facilitée & Clarification des rôles (RACI)</td>
+                            <td class="text-success fw-bold">Rétablir l'harmonie et la collaboration durable</td>
+                            <td>Organisez une session de médiation neutre. Utilisez la matrice RACI (Responsible, Accountable, Consulted, Informed) pour définir précisément qui fait quoi, qui est responsable, qui doit être consulté et qui doit être informé. Cela réduit les chevauchements et les malentendus.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Projet en phase critique / échec imminent</td>
+                            <td><span class="badge bg-warning me-2"><i class="fas fa-exclamation-triangle"></i></span>Réévaluation d'urgence & Priorisation Agile</td>
+                            <td class="text-info fw-bold">Redémarrer efficacement avec des objectifs réalistes</td>
+                            <td>Menez un "Post-Mortem" rapide pour identifier les causes racines. Redéfinissez les MVP (Minimum Viable Products) et les sprints courts. Implémentez des boucles de feedback serrées et réévaluez les ressources. La flexibilité est clé.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Décision urgente sous pression</td>
+                            <td><span class="badge bg-danger me-2"><i class="fas fa-clock"></i></span>Matrice d'Eisenhower & Consultation limitée</td>
+                            <td class="text-primary fw-bold">Action rapide et éclairée sans précipitation excessive</td>
+                            <td>Classifiez la tâche : Urgent/Important. Pour les décisions critiques, limitez la consultation à 2-3 experts de confiance. Appliquez le modèle Vroom-Yetton pour choisir le style de décision (autocratique, consultatif, de groupe) le plus adapté à la situation et au temps disponible.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Lancement de nouveau produit/service</td>
+                            <td><span class="badge bg-success me-2"><i class="fas fa-lightbulb"></i></span>Stratégie "Blue Ocean" & Test A/B continus</td>
+                            <td class="text-purple fw-bold">Créer un nouvel espace de marché et valider l'adhésion</td>
+                            <td>Au lieu de la concurrence, cherchez à créer de la valeur innovante qui rend la concurrence non pertinente. Testez différentes versions de votre produit/message marketing auprès de petits groupes pour optimiser l'engagement avant le déploiement à grande échelle.</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Optimisation des processus internes</td>
+                            <td><span class="badge bg-info me-2"><i class="fas fa-cogs"></i></span>Méthode des 5 Pourquoi & Lean Management</td>
+                            <td class="text-dark fw-bold">Éliminer le gaspillage et améliorer l'efficacité</td>
+                            <td>Chaque problème de processus : demandez "Pourquoi ?" cinq fois pour trouver la cause fondamentale. Adoptez les principes Lean pour identifier et éliminer les gaspillages (surproduction, attente, transport inutile, sur-traitement, stocks, mouvements, défauts).</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Gestion de crise et incertitude</td>
+                            <td><span class="badge bg-secondary me-2"><i class="fas fa-shield-alt"></i></span>Planification de scénarios & Communication proactive</td>
+                            <td class="text-orange fw-bold">Anticiper l'imprévu et rassurer les parties prenantes</td>
+                            <td>Développez plusieurs scénarios (optimiste, réaliste, pessimiste, catastrophe) et des plans d'action pour chacun. Communiquez fréquemment et de manière transparente avec votre équipe et vos clients, même lorsque les informations sont limitées, pour maintenir la confiance.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-4 text-muted fst-italic">En intégrant ces stratégies dans votre répertoire, vous passerez d'une gestion réactive à une approche proactive, transformant les défis en opportunités de croissance.</p>
+        </div>
+    </div>
+</section>
+
+<section id="erreurs-section" class="container my-5 animate__animated animate__fadeInUp">
+<br><br><br><br>
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header bg-danger text-white p-4 rounded-top-3 d-flex align-items-center">
+            <i class="fas fa-exclamation-triangle fa-2x me-3 opacity-75"></i>
+            <h4 class="mb-0 fw-bold">Top Erreurs à Éviter : Leçons de Sagesse Préventive</h4>
+        </div>
+        <div class="card-body p-4 p-md-5">
+            <p class="lead mb-4 text-dark">Le chemin de la sagesse est souvent pavé des erreurs des autres. Apprendre à reconnaître et à éviter les pièges courants est une forme d'intelligence préventive. Voici les erreurs fondamentales qui peuvent compromettre vos efforts et comment les identifier.</p>
+            <ul class="list-group list-group-flush mt-4">
+                <li class="list-group-item d-flex align-items-start py-3">
+                    <i class="fas fa-eye-slash fa-2x text-danger me-4 mt-1"></i>
                     <div>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                            <i class="fas fa-times me-1"></i>Quitter
-                        </button>
-                        <button type="button" class="btn btn-success" id="simulation-next">
-                            <i class="fas fa-forward me-1"></i>Continuer
-                        </button>
+                        <h5 class="fw-bold text-danger mb-1">1. Ignorer les signaux faibles du terrain</h5>
+                        <p class="mb-2">C'est l'erreur de l'autruche. Les signaux faibles sont des indicateurs subtils (plaintes récurrentes, baisse de morale, petits retards accumulés) qui, s'ils sont ignorés, peuvent se transformer en problèmes majeurs. Par exemple, une petite baisse de productivité inexpliquée peut être le signe d'un problème d'outils ou d'un conflit larvé.</p>
+                        <p class="text-muted small mb-0">**Conséquence :** Effet boule de neige incontrôlable, problèmes insolubles, perte de contrôle opérationnel.</p>
                     </div>
-                </div>
-            </div>
+                </li>
+                <li class="list-group-item d-flex align-items-start py-3">
+                    <i class="fas fa-user-friends-slash fa-2x text-danger me-4 mt-1"></i>
+                    <div>
+                        <h5 class="fw-bold text-danger mb-1">2. Prendre des décisions seul sans consultation pertinente</h5>
+                        <p class="mb-2">Même le plus brillant des esprits a des angles morts. La "sagesse de la foule" ou la consultation d'experts peut révéler des risques ou des opportunités insoupçonnés. S'isoler dans la prise de décision, c'est se priver de perspectives cruciales et de l'adhésion future de l'équipe, menant à l'isolement et au manque de soutien.</p>
+                        <p class="text-muted small mb-0">**Conséquence :** Décisions non optimales, manque d'adhésion, résistance au changement, ressentiment d'équipe.</p>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-start py-3">
+                    <i class="fas fa-redo-alt fa-2x text-danger me-4 mt-1"></i>
+                    <div>
+                        <h5 class="fw-bold text-danger mb-1">3. Ne pas apprendre des erreurs passées</h5>
+                        <p class="mb-2">Répéter les mêmes erreurs, c'est gaspiller une opportunité d'apprentissage précieuse. Cela se produit lorsque l'on ne procède pas à un débriefing objectif après un échec ou un succès, en identifiant les causes profondes et en formalisant les leçons apprises. Par exemple, lancer un nouveau produit avec les mêmes défauts marketing qu'un précédent échec.</p>
+                        <p class="text-muted small mb-0">**Conséquence :** Cycle d'échecs, stagnation de la croissance, perte de crédibilité et de confiance des parties prenantes.</p>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-start py-3">
+                    <i class="fas fa-tachometer-alt fa-2x text-danger me-4 mt-1"></i>
+                    <div>
+                        <h5 class="fw-bold text-danger mb-1">4. Prioriser la rapidité au détriment de la qualité ou de la réflexion</h5>
+                        <p class="mb-2">La culture de l'urgence constante peut mener à des solutions hâtives, superficielles et non durables. "Vite fait, mal fait" se paie souvent cher à long terme en termes de retouches, de mécontentement client ou de réputation. Il est essentiel de trouver un équilibre entre rapidité d'exécution et profondeur d'analyse.</p>
+                        <p class="text-muted small mb-0">**Conséquence :** Travail bâclé, insatisfaction client, réputation ternie, coûts cachés élevés de correction.</p>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-start py-3">
+                    <i class="fas fa-handshake-alt-slash fa-2x text-danger me-4 mt-1"></i>
+                    <div>
+                        <h5 class="fw-bold text-danger mb-1">5. Négliger l'investissement dans les relations humaines</h5>
+                        <p class="mb-2">Que ce soit avec les collègues, les clients ou les partenaires, les relations sont le lubrifiant de toute opération. Ignorer la construction de la confiance, la communication ouverte ou le développement d'un réseau solide peut mener à des blocages, des malentendus et un manque de soutien au moment opportun.</p>
+                        <p class="text-muted small mb-0">**Conséquence :** Isolement professionnel, résistance aux initiatives, opportunités manquées, climat de travail délétère.</p>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-start py-3">
+                    <i class="fas fa-chart-pie-alt fa-2x text-danger me-4 mt-1"></i>
+                    <div>
+                        <h5 class="fw-bold text-danger mb-1">6. Manquer de clarté sur les objectifs et les priorités</h5>
+                        <p class="mb-2">Naviguer sans boussole mène au naufrage. Sans objectifs clairs et priorités bien définies, les équipes et les individus peuvent se disperser, travailler sur des tâches à faible valeur ajoutée, ou pire, aller dans des directions contradictoires. La clarté est le fondement de l'efficacité opérationnelle.</p>
+                        <p class="text-muted small mb-0">**Conséquence :** Dispersion des efforts, inefficacité, frustration des équipes, non-atteinte des résultats.</p>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-start py-3">
+                    <i class="fas fa-book-sparkles fa-2x text-danger me-4 mt-1"></i>
+                    <div>
+                        <h5 class="fw-bold text-danger mb-1">7. Refuser de s'adapter et de désapprendre</h5>
+                        <p class="mb-2">Dans un monde en constante évolution, s'accrocher à d'anciennes méthodes ou à des certitudes obsolètes est une voie directe vers l'obsolescence. La sagesse moderne implique la capacité à "désapprendre" ce qui n'est plus pertinent et à s'adapter rapidement aux nouvelles réalités et technologies.</p>
+                        <p class="text-muted small mb-0">**Conséquence :** Perte de compétitivité, innovation bloquée, incapacité à saisir de nouvelles opportunités.</p>
+                    </div>
+                </li>
+            </ul>
+            <p class="mt-4 text-muted fst-italic">En étant conscient de ces pièges, vous pouvez délibérément mettre en place des contre-mesures et ainsi élever votre pratique opérationnelle à un niveau supérieur de sagesse.</p>
         </div>
     </div>
+</section>
 
-    <!-- Video Modal -->
-    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header bg-dark text-white">
-                    <h5 class="modal-title"><i class="fas fa-video me-2"></i>Introduction à la Sagesse Opérationnelle</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/7wtfhZwyrcc" title="YouTube video" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Commencer le voyage</button>
-                </div>
+<section id="checklist-section" class="container my-5 animate__animated animate__fadeInUp">
+<br><br><br><br>
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header bg-primary text-white p-4 rounded-top-3 d-flex align-items-center">
+            <i class="fas fa-clipboard-check fa-2x me-3 opacity-75"></i>
+            <h4 class="mb-0 fw-bold">Checklists & Bonnes Pratiques : La Précision de l'Excellence</h4>
+        </div>
+        <div class="card-body p-4 p-md-5">
+            <p class="lead mb-4 text-dark">Les checklists ne sont pas de simples listes de tâches ; elles sont des outils puissants pour assurer la cohérence, réduire les erreurs, et libérer votre charge mentale pour des réflexions plus stratégiques. Adopter de bonnes pratiques est la marque des professionnels avisés.</p>
+
+            <h5 class="mt-4 mb-3 text-primary fw-bold"><i class="fas fa-list-ol me-2"></i>Checklist de Lancement de Projet</h5>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle">
+                    <thead class="table-primary">
+                        <tr>
+                            <th scope="col">Étape Clé</th>
+                            <th scope="col">Critère de Validation (Détail)</th>
+                            <th scope="col">Statut</th>
+                            <th scope="col">Notes / Date de Révision</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold">Objectifs du projet</td>
+                            <td>Définis de manière <span class="badge bg-success">SMART</span> (Spécifiques, Mesurables, Atteignables, Réalistes, Temporellement définis) et alignés avec la vision globale de l'organisation.</td>
+                            <td><i class="fas fa-check-circle text-success fa-lg"></i></td>
+                            <td>01/06/2025</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Analyse des Risques</td>
+                            <td>Risques majeurs identifiés (techniques, humains, financiers, marché), évalués (probabilité x impact) et plans d'atténuation (ou contingence) définis et documentés pour chacun.</td>
+                            <td><i class="fas fa-check-circle text-success fa-lg"></i></td>
+                            <td>05/06/2025</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Parties Prenantes</td>
+                            <td>Toutes les parties prenantes internes/externes identifiées, cartographiées, leurs attentes et besoins documentés, et un plan de communication adapté établi.</td>
+                            <td><i class="fas fa-check-circle text-success fa-lg"></i></td>
+                            <td>03/06/2025</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Planification Détaillée</td>
+                            <td>Tâches décomposées en phases gérables (WBS), responsabilités claires (<span class="badge bg-info">RACI</span>), jalons définis, ressources allouées, budget approuvé et calendrier réaliste et partagé.</td>
+                            <td><i class="fas fa-check-circle text-success fa-lg"></i></td>
+                            <td>08/06/2025</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Ressources (humaines/matérielles)</td>
+                            <td>Disponibilité confirmée des équipes (compétences et effectifs), des outils, des logiciels et des budgets nécessaires. Formation éventuelle planifiée et validée.</td>
+                            <td><i class="fas fa-check-circle text-success fa-lg"></i></td>
+                            <td>10/06/2025</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Critères de Succès & KPIs</td>
+                            <td>Indicateurs Clés de Performance (KPIs) clairs, mesurables et acceptés par tous les acteurs pour suivre l'avancement et évaluer le succès final du projet.</td>
+                            <td><i class="fas fa-check-circle text-success fa-lg"></i></td>
+                            <td>07/06/2025</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Plan de Communication</td>
+                            <td>Fréquence, canaux, formats et contenu des communications internes et externes définis. Qui communique quoi, quand, et à qui, pour assurer une transparence optimale.</td>
+                            <td><i class="fas fa-check-circle text-success fa-lg"></i></td>
+                            <td>04/06/2025</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Mécanismes de Suivi & Reporting</td>
+                            <td>Outils et processus de suivi (réunions régulières, tableaux de bord interactifs) mis en place pour évaluer la progression, identifier les blocages et les écarts par rapport au plan.</td>
+                            <td><i class="fas fa-check-circle text-success fa-lg"></i></td>
+                            <td>11/06/2025</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Plan de Clôture du Projet</td>
+                            <td>Définition des étapes pour la clôture formelle (validation finale, transfert de propriété, archivage des documents, célébration des succès, débriefing des leçons apprises).</td>
+                            <td><i class="fas fa-check-circle text-success fa-lg"></i></td>
+                            <td>15/06/2025</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
+            <h5 class="mt-5 mb-3 text-primary fw-bold"><i class="fas fa-lightbulb me-2"></i>Bonnes Pratiques Additionnelles pour l'Excellence Quotidienne</h5>
+            <ul class="list-group list-group-flush mt-3">
+                <li class="list-group-item d-flex align-items-center py-3">
+                    <i class="fas fa-hourglass-half fa-2x me-3 text-warning"></i>
+                    <div>
+                        <h6 class="fw-bold mb-1">Méthode Pomodoro pour la concentration :</h6>
+                        <p class="mb-0 text-muted">Travaillez par intervalles de 25 minutes (focus intense), suivis de courtes pauses (5 minutes). Cela aide à maintenir la concentration, à réduire la fatigue mentale et à optimiser la productivité sur la durée.</p>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-center py-3">
+                    <i class="fas fa-fire fa-2x me-3 text-danger"></i>
+                    <div>
+                        <h6 class="fw-bold mb-1">Règle des Deux Minutes (Getting Things Done) :</h6>
+                        <p class="mb-0 text-muted">Si une tâche prend moins de deux minutes à faire, faites-la immédiatement. Cette pratique simple permet d'éviter l'accumulation de "petites choses" qui peuvent devenir écrasantes et de maintenir un bureau et un esprit clairs.</p>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-center py-3">
+                    <i class="fas fa-chart-pie fa-2x me-3 text-info"></i>
+                    <div>
+                        <h6 class="fw-bold mb-1">Principe de Pareto (80/20) :</h6>
+                        <p class="mb-0 text-muted">Identifiez les 20% des efforts qui produisent 80% des résultats. Concentrez-vous sur ces tâches à forte valeur ajoutée pour maximiser votre impact et obtenir les meilleurs retours sur investissement de votre temps et de vos ressources.</p>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-center py-3">
+                    <i class="fas fa-users-crown fa-2x me-3 text-success"></i>
+                    <div>
+                        <h6 class="fw-bold mb-1">Feedback 360° continu :</h6>
+                        <p class="mb-0 text-muted">Sollicitez et donnez régulièrement des retours constructifs de et à vos pairs, supérieurs, subordonnés et clients. C'est une mine d'or pour l'amélioration continue de vos compétences, de vos pratiques et des dynamiques d'équipe.</p>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-center py-3">
+                    <i class="fas fa-brain fa-2x me-3 text-dark"></i>
+                    <div>
+                        <h6 class="fw-bold mb-1">Débriefing régulier (Post-Mortem ou Retrospective) :</h6>
+                        <p class="mb-0 text-muted">Après chaque projet significatif ou chaque sprint, rassemblez l'équipe pour analyser ce qui a bien fonctionné, ce qui a moins bien fonctionné, et pourquoi. Identifiez les leçons apprises et les actions concrètes pour les projets futurs.</p>
+                    </div>
+                </li>
+            </ul>
+            <p class="mt-4 text-muted fst-italic">L'adoption de ces pratiques et l'utilisation rigoureuse de checklists transformeront votre approche des défis quotidiens, vous rendant plus efficace, plus fiable et plus serein.</p>
         </div>
     </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-5 mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h5><i class="fas fa-brain me-2"></i>Portail Sagesse</h5>
-                    <p class="text-muted">De la connaissance à la maîtrise : votre guide pour devenir un sage opérationnel efficace.</p>
-                </div>
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h5>Navigation</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link ps-0" href="#dashboard">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link ps-0" href="#categories">Catégories</a></li>
-                        <li class="nav-item"><a class="nav-link ps-0" href="#quiz">Quiz</a></li>
-                        <li class="nav-item"><a class="nav-link ps-0" href="#simulations">Simulations</a></li>
-                        <li class="nav-item"><a class="nav-link ps-0" href="#progress">Progression</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4">
-                    <h5>Contact</h5>
-                    <p class="text-muted mb-2"><i class="fas fa-envelope me-2"></i>contact@sagesse-operationnelle.com</p>
-                    <div class="social-icons">
-                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-4 bg-secondary">
-            <div class="text-center text-muted">
-                <small>© 2023 Portail Sagesse Opérationnelle. Tous droits réservés.</small>
-            </div>
+<section id="evaluation-section" class="container my-5 animate__animated animate__fadeInUp">
+<br><br><br><br>
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header bg-warning text-white p-4 rounded-top-3 d-flex align-items-center">
+            <i class="fas fa-lightbulb-on fa-2x me-3 opacity-75"></i>
+            <h4 class="mb-0 fw-bold">Auto-évaluation : Votre Miroir de Sagesse Opérationnelle</h4>
         </div>
-    </footer>
+        <div class="card-body p-4 p-md-5">
+            <p class="lead mb-4 text-dark">L'auto-évaluation est un pilier de l'amélioration continue. Prenez un moment pour réfléchir sincèrement à vos pratiques actuelles. Plus vous serez honnête, plus les pistes d'amélioration seront claires. Cochez les affirmations qui vous décrivent le mieux.</p>
+            <form>
+                <fieldset class="mb-5">
+                    <h5 class="mt-4 mb-3 text-warning fw-bold"><i class="fas fa-clock me-2"></i>1. Maîtrise du Temps et Priorisation Stratégique</h5>
+                    <div class="form-check form-switch mb-2 p-3 border rounded-3 bg-light">
+                        <input class="form-check-input" type="checkbox" id="evalPlanifieRigoureux">
+                        <label class="form-check-label ms-2 fw-medium" for="evalPlanifieRigoureux">Je planifie mes tâches avec rigueur et utilise des outils éprouvés (ex: Matrice Eisenhower, Calendrier partagé) pour prioriser mes activités.</label>
+                    </div>
+                    <div class="form-check form-switch mb-2 p-3 border rounded-3 bg-light">
+                        <input class="form-check-input" type="checkbox" id="evalEviteProcrastination">
+                        <label class="form-check-label ms-2 fw-medium" for="evalEviteProcrastination">J'évite la procrastination en m'attaquant aux tâches importantes et complexes en premier, même si elles ne sont pas urgentes.</label>
+                    </div>
+                    <div class="form-check form-switch mb-2 p-3 border rounded-3 bg-light">
+                        <input class="form-check-input" type="checkbox" id="evalSaitDireNon">
+                        <label class="form-check-label ms-2 fw-medium" for="evalSaitDireNon">Je sais dire non poliment mais fermement aux sollicitations qui ne sont pas alignées avec mes objectifs ou mes capacités actuelles, sans culpabilité.</label>
+                    </div>
+                    <div class="form-check form-switch mb-2 p-3 border rounded-3 bg-light">
+                        <input class="form-check-input" type="checkbox" id="evalOptimiseReunions">
+                        <label class="form-check-label ms-2 fw-medium" for="evalOptimiseReunions">Je m'assure que mes réunions ont un ordre du jour clair, un objectif précis et des actions décidées, optimisant ainsi le temps de tous.</label>
+                    </div>
+                </fieldset>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="script.js"></script>
+                <fieldset class="mb-5">
+                    <h5 class="mt-5 mb-3 text-warning fw-bold"><i class="fas fa-handshake-angle me-2"></i>2. Agilité Décisionnelle et Résolution Créative</h5>
+                    <div class="form-check form-switch mb-2 p-3 border rounded-3 bg-light">
+                        <input class="form-check-input" type="checkbox" id="evalAnalyseAvantAgir">
+                        <label class="form-check-label ms-2 fw-medium" for="evalAnalyseAvantAgir">Je prends le temps d’analyser en profondeur une situation complexe, en considérant différentes perspectives avant d’agir ou de décider.</label>
+                    </div>
+                    <div class="form-check form-switch mb-2 p-3 border rounded-3 bg-light">
+                        <input class="form-check-input" type="checkbox" id="evalConsulteDifferentesPerspectives">
+                        <label class="form-check-label ms-2 fw-medium" for="evalConsulteDifferentesPerspectives">Je consulte délibérément différentes parties prenantes et experts pour enrichir ma vision avant une décision majeure ou un défi.</label>
+                    </div>
+                    <div class="form-check form-switch mb-2 p-3 border rounded-3 bg-light">
+                        <input class="form-check-input" type="checkbox" id="evalChercheCausesRacines">
+                        <label class="form-check-label ms-2 fw-medium" for="evalChercheCausesRacines">Face à un problème récurrent, je cherche systématiquement les causes racines (ex: méthode des 5 Pourquoi, diagramme d'Ishikawa) plutôt que de traiter les symptômes.</label>
+                    </div>
+                    <div class="form-check form-switch mb-2 p-3 border rounded-3 bg-light">
+                        <input class="form-check-input" type="checkbox" id="evalEmbrasseLIncertitude">
+                        <label class="form-check-label ms-2 fw-medium" for="evalEmbrasseLIncertitude">Je suis à l'aise avec l'incertitude et capable de prendre des décisions éclairées même avec des informations incomplètes, en gérant les risques.</label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="mb-5">
+                    <h5 class="mt-5 mb-3 text-warning fw-bold"><i class="fas fa-graduation-cap me-2"></i>3. Apprentissage Continu et Adaptabilité au Changement</h5>
+                    <div class="form-check form-switch mb-2 p-3 border rounded-3 bg-light">
+                        <input class="form-check-input" type="checkbox" id="evalTireLeconsExperiences">
+                        <label class="form-check-label ms-2 fw-medium" for="evalTireLeconsExperiences">Je tire activement des leçons de chaque expérience (succès comme échecs) et j'intègre ces apprentissages dans mes pratiques futures.</label>
+                    </div>
+                    <div class="form-check form-switch mb-2 p-3 border rounded-3 bg-light">
+                        <input class="form-check-input" type="checkbox" id="evalOuvertChangement">
+                        <label class="form-check-label ms-2 fw-medium" for="evalOuvertChangement">Je suis proactif(ve) face au changement, je l'embrasse comme une opportunité et j'adapte mes méthodes de travail si nécessaire.</label>
+                    </div>
+                    <div class="form-check form-switch mb-2 p-3 border rounded-3 bg-light">
+                        <input class="form-check-input" type="checkbox" id="evalDeveloppeNouvellesCompetences">
+                        <label class="form-check-label ms-2 fw-medium" for="evalDeveloppeNouvellesCompetences">Je cherche activement à développer de nouvelles compétences et connaissances pertinentes pour mon évolution et celle de mon environnement.</label>
+                    </div>
+                    <div class="form-check form-switch mb-2 p-3 border rounded-3 bg-light">
+                        <input class="form-check-input" type="checkbox" id="evalPartageSavoir">
+                        <label class="form-check-label ms-2 fw-medium" for="evalPartageSavoir">Je partage mes connaissances et mon expérience avec mes collègues, contribuant ainsi à une culture d'apprentissage collectif.</label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="mb-5">
+                    <h5 class="mt-5 mb-3 text-warning fw-bold"><i class="fas fa-people-arrows me-2"></i>4. Relations Interpersonnelles et Leadership d'Influence</h5>
+                    <div class="form-check form-switch mb-2 p-3 border rounded-3 bg-light">
+                        <input class="form-check-input" type="checkbox" id="evalPratiqueEcouteActive">
+                        <label class="form-check-label ms-2 fw-medium" for="evalPratiqueEcouteActive">Je pratique l'écoute active et l'empathie, cherchant réellement à comprendre les perspectives d'autrui dans mes interactions quotidiennes.</label>
+                    </div>
+                    <div class="form-check form-switch mb-2 p-3 border rounded-3 bg-light">
+                        <input class="form-check-input" type="checkbox" id="evalDonneFeedbackConstructif">
+                        <label class="form-check-label ms-2 fw-medium" for="evalDonneFeedbackConstructif">Je donne du feedback constructif de manière régulière et je suis ouvert(e) à en recevoir pour ma propre amélioration.</label>
+                    </div>
+                    <div class="form-check form-switch mb-2 p-3 border rounded-3 bg-light">
+                        <input class="form-check-input" type="checkbox" id="evalInspireConfiance">
+                        <label class="form-check-label ms-2 fw-medium" for="evalInspireConfiance">Mes actions et ma communication sont cohérentes et transparentes, ce qui inspire confiance et motive mon entourage professionnel.</label>
+                    </div>
+                    <div class="form-check form-switch mb-2 p-3 border rounded-3 bg-light">
+                        <input class="form-check-input" type="checkbox" id="evalResoudConflits">
+                        <label class="form-check-label ms-2 fw-medium" for="evalResoudConflits">Je suis capable de naviguer et de résoudre les conflits de manière constructive, en recherchant des solutions mutuellement bénéfiques.</label>
+                    </div>
+                </fieldset>
+
+                <div class="mb-4 mt-5 p-4 bg-light rounded-3 border">
+                    <label for="reflectionArea" class="form-label text-warning fw-bold"><i class="fas fa-comment-dots me-2"></i>Réflexion Personnelle & Engagement :</label>
+                    <p class="text-muted small">Prenez un moment pour identifier vos points forts actuels et les domaines que vous souhaitez développer.</p>
+                    <textarea class="form-control" id="reflectionArea" rows="5" placeholder="Mes deux principales forces sont... Un domaine clé sur lequel je souhaite travailler pour développer ma sagesse opérationnelle est..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-warning btn-lg mt-3 w-100"><i class="fas fa-save me-2"></i>Enregistrer mon Évaluation & Mes Objectifs</button>
+            </form>
+            <p class="mt-4 text-muted fst-italic text-center">L'auto-évaluation est un voyage continu, pas une destination. Revisitez cette section régulièrement pour suivre vos progrès et ajuster votre parcours vers une sagesse opérationnelle toujours plus affûtée.</p>
+        </div>
+    </div>
+</section>
+
+<section id="ressources-section" class="container my-5 animate__animated animate__fadeInUp">
+<br><br><br><br>
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header bg-info text-white p-4 rounded-top-3 d-flex align-items-center">
+            <i class="fas fa-book-reader fa-2x me-3 opacity-75"></i>
+            <h4 class="mb-0 fw-bold">Ressources Utiles : Nourrir Votre Esprit de Sagesse</h4>
+        </div>
+        <div class="card-body p-4 p-md-5">
+            <p class="lead mb-4 text-dark">La soif d'apprendre est la première étape vers la sagesse. Explorez ces ressources sélectionnées pour approfondir vos connaissances et développer vos compétences en matière de leadership, de stratégie et de bien-être, qui sont au cœur de la sagesse opérationnelle.</p>
+
+            <h5 class="mt-4 mb-3 text-info fw-bold"><i class="fas fa-bookmark me-2"></i>Livres & Lectures Essentielles pour une Pensée Profonde</h5>
+            <div class="list-group list-group-flush">
+                <a href="https://www.goodreads.com/book/show/23692271-sapiens" target="_blank" class="list-group-item list-group-item-action d-flex align-items-start py-3">
+                    <i class="fas fa-book-open fa-2x me-3 text-secondary"></i>
+                    <div>
+                        <h6 class="mb-1 fw-bold">"Sapiens : Une brève histoire de l'humanité" <span class="text-muted">(Yuval Noah Harari)</span></h6>
+                        <p class="mb-1 text-muted small">_Comprendre l'évolution humaine et les systèmes complexes qui nous ont façonnés permet de mieux anticiper l'avenir et de contextualiser les défis actuels._ <i class="fas fa-external-link-alt ms-2 fa-sm"></i></p>
+                    </div>
+                </a>
+                <a href="https://www.goodreads.com/book/show/11468377-thinking-fast-and-slow" target="_blank" class="list-group-item list-group-item-action d-flex align-items-start py-3">
+                    <i class="fas fa-brain fa-2x me-3 text-secondary"></i>
+                    <div>
+                        <h6 class="mb-1 fw-bold">"Penser, rapide et lent" <span class="text-muted">(Daniel Kahneman)</span></h6>
+                        <p class="mb-1 text-muted small">_Un ouvrage fondamental pour décrypter les deux systèmes de pensée qui guident nos décisions et nos jugements, essentiel pour éviter les biais cognitifs et prendre des décisions plus rationnelles._ <i class="fas fa-external-link-alt ms-2 fa-sm"></i></p>
+                    </div>
+                </a>
+                <a href="https://www.goodreads.com/book/show/105470.The_Art_of_War" target="_blank" class="list-group-item list-group-item-action d-flex align-items-start py-3">
+                    <i class="fas fa-scroll fa-2x me-3 text-secondary"></i>
+                    <div>
+                        <h6 class="mb-1 fw-bold">"L'Art de la Guerre" <span class="text-muted">(Sun Tzu)</span></h6>
+                        <p class="mb-1 text-muted small">_Un classique intemporel sur la stratégie militaire, dont les principes sont étonnamment applicables aux défis professionnels, au leadership et à la négociation._ <i class="fas fa-external-link-alt ms-2 fa-sm"></i></p>
+                    </div>
+                </a>
+                <a href="https://www.goodreads.com/book/show/40121378-atomic-habits" target="_blank" class="list-group-item list-group-item-action d-flex align-items-start py-3">
+                    <i class="fas fa-atom fa-2x me-3 text-secondary"></i>
+                    <div>
+                        <h6 class="mb-1 fw-bold">"Atomic Habits" <span class="text-muted">(James Clear)</span></h6>
+                        <p class="mb-1 text-muted small">_Apprenez comment de petits changements quotidiens et la mise en place de systèmes peuvent mener à des résultats remarquables en matière d'habitudes, d'efficacité personnelle et de réussite à long terme._ <i class="fas fa-external-link-alt ms-2 fa-sm"></i></p>
+                    </div>
+                </a>
+                <a href="https://www.goodreads.com/book/show/6487865-drive" target="_blank" class="list-group-item list-group-item-action d-flex align-items-start py-3">
+                    <i class="fas fa-lightbulb-on fa-2x me-3 text-secondary"></i>
+                    <div>
+                        <h6 class="mb-1 fw-bold">"Drive: The Surprising Truth About What Motivates Us" <span class="text-muted">(Daniel H. Pink)</span></h6>
+                        <p class="mb-1 text-muted small">_Explore la motivation intrinsèque au-delà des récompenses externes, et comment la cultiver chez soi et dans son équipe pour un engagement et une performance accrus._ <i class="fas fa-external-link-alt ms-2 fa-sm"></i></p>
+                    </div>
+                </a>
+            </div>
+
+            <h5 class="mt-5 mb-3 text-info fw-bold"><i class="fas fa-graduation-cap me-2"></i>Plateformes d'Apprentissage en Ligne : Développez Vos Compétences</h5>
+            <div class="list-group list-group-flush">
+                <a href="https://www.coursera.org" target="_blank" class="list-group-item list-group-item-action d-flex align-items-start py-3">
+                    <i class="fas fa-laptop-code fa-2x me-3 text-secondary"></i>
+                    <div>
+                        <h6 class="mb-1 fw-bold">Coursera</h6>
+                        <p class="mb-1 text-muted small">_Des cours et spécialisations en ligne dispensés par des universités de renom mondial et des entreprises sur une multitude de sujets : management, science des données, psychologie, etc._ <i class="fas fa-external-link-alt ms-2 fa-sm"></i></p>
+                    </div>
+                </a>
+                <a href="https://www.edx.org" target="_blank" class="list-group-item list-group-item-action d-flex align-items-start py-3">
+                    <i class="fas fa-chalkboard-teacher fa-2x me-3 text-secondary"></i>
+                    <div>
+                        <h6 class="mb-1 fw-bold">edX</h6>
+                        <p class="mb-1 text-muted small">_Propose des cours de qualité universitaire, souvent gratuits pour l'audit, couvrant des domaines allant de la philosophie à la programmation, avec des options de certification._ <i class="fas fa-external-link-alt ms-2 fa-sm"></i></p>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/learning/" target="_blank" class="list-group-item list-group-item-action d-flex align-items-start py-3">
+                    <i class="fab fa-linkedin-in fa-2x me-3 text-secondary"></i>
+                    <div>
+                        <h6 class="mb-1 fw-bold">LinkedIn Learning</h6>
+                        <p class="mb-1 text-muted small">_Des milliers de cours vidéo animés par des experts de l'industrie, avec un accent fort sur les compétences professionnelles (soft skills et hard skills) et le leadership._ <i class="fas fa-external-link-alt ms-2 fa-sm"></i></p>
+                    </div>
+                </a>
+                <a href="https://openclassrooms.com" target="_blank" class="list-group-item list-group-item-action d-flex align-items-start py-3">
+                    <i class="fas fa-code-branch fa-2x me-3 text-secondary"></i>
+                    <div>
+                        <h6 class="mb-1 fw-bold">OpenClassrooms</h6>
+                        <p class="mb-1 text-muted small">_Formations certifiantes en ligne, axées sur l'employabilité et les compétences techniques et numériques, souvent avec un accompagnement personnalisé par des mentors._ <i class="fas fa-external-link-alt ms-2 fa-sm"></i></p>
+                    </div>
+                </a>
+            </div>
+
+            <h5 class="mt-5 mb-3 text-info fw-bold"><i class="fas fa-podcast me-2"></i>Podcasts & Conférences Inspirantes : Écoutez la Sagesse</h5>
+            <div class="list-group list-group-flush">
+                <a href="https://www.slate.fr/podcast/transfert" target="_blank" class="list-group-item list-group-item-action d-flex align-items-start py-3">
+                    <i class="fas fa-microphone-alt fa-2x me-3 text-secondary"></i>
+                    <div>
+                        <h6 class="mb-1 fw-bold">"Transfert" <span class="text-muted">(Slate.fr)</span></h6>
+                        <p class="mb-1 text-muted small">_Des récits de vie intimes et authentiques qui interrogent les grandes décisions, les tournants personnels et professionnels, et les leçons tirées._ <i class="fas fa-external-link-alt ms-2 fa-sm"></i></p>
+                    </div>
+                </a>
+                <a href="https://www.ted.com/podcasts/ted-talks-daily" target="_blank" class="list-group-item list-group-item-action d-flex align-items-start py-3">
+                    <i class="fab fa-ted fa-2x me-3 text-secondary"></i>
+                    <div>
+                        <h6 class="mb-1 fw-bold">"TED Talks Daily"</h6>
+                        <p class="mb-1 text-muted small">_Des idées inspirantes de leaders, penseurs et innovateurs du monde entier sur une multitude de sujets allant de la science à la psychologie, en passant par le business._ <i class="fas fa-external-link-alt ms-2 fa-sm"></i></p>
+                    </div>
+                </a>
+                <a href="https://www.dovbaron.com/podcast" target="_blank" class="list-group-item list-group-item-action d-flex align-items-start py-3">
+                    <i class="fas fa-users-crown fa-2x me-3 text-secondary"></i>
+                    <div>
+                        <h6 class="mb-1 fw-bold">"Leadership and Loyalty" <span class="text-muted">(Dov Baron)</span></h6>
+                        <p class="mb-1 text-muted small">_Un podcast axé sur le leadership authentique, la construction de la loyauté dans les équipes et le développement de leaders visionnaires._ <i class="fas fa-external-link-alt ms-2 fa-sm"></i></p>
+                    </div>
+                </a>
+            </div>
+
+            <h5 class="mt-5 mb-3 text-info fw-bold"><i class="fas fa-tools me-2"></i>Outils & Méthodologies Pratiques : Améliorez Votre Efficacité</h5>
+            <div class="list-group list-group-flush">
+                <a href="https://www.mindtools.com" target="_blank" class="list-group-item list-group-item-action d-flex align-items-start py-3">
+                    <i class="fas fa-toolbox fa-2x me-3 text-secondary"></i>
+                    <div>
+                        <h6 class="mb-1 fw-bold">MindTools</h6>
+                        <p class="mb-1 text-muted small">_Une bibliothèque complète d'outils et de techniques pratiques pour le leadership, la gestion de projet, la prise de décision, la résolution de problèmes et le développement personnel._ <i class="fas fa-external-link-alt ms-2 fa-sm"></i></p>
+                    </div>
+                </a>
+                <a href="https://asana.com" target="_blank" class="list-group-item list-group-item-action d-flex align-items-start py-3">
+                    <i class="fas fa-tasks fa-2x me-3 text-secondary"></i>
+                    <div>
+                        <h6 class="mb-1 fw-bold">Asana / Trello / Monday.com</h6>
+                        <p class="mb-1 text-muted small">_Des outils de gestion de projet et de collaboration d'équipe pour organiser les tâches, suivre les progrès, fluidifier la communication et améliorer la productivité collective._ <i class="fas fa-external-link-alt ms-2 fa-sm"></i></p>
+                    </div>
+                </a>
+                <a href="https://evernote.com" target="_blank" class="list-group-item list-group-item-action d-flex align-items-start py-3">
+                    <i class="fas fa-sticky-note fa-2x me-3 text-secondary"></i>
+                    <div>
+                        <h6 class="mb-1 fw-bold">Evernote / OneNote</h6>
+                        <p class="mb-1 text-muted small">_Applications de prise de notes numériques et d'organisation pour capturer vos idées, organiser vos informations, créer des listes de contrôle et améliorer votre mémoire de travail._ <i class="fas fa-external-link-alt ms-2 fa-sm"></i></p>
+                    </div>
+                </a>
+            </div>
+
+            <p class="mt-4 text-muted fst-italic text-center">L'accès à ces ressources est une opportunité en or. Engagez-vous à explorer régulièrement ces avenues de savoir pour une croissance continue et une sagesse toujours plus profonde dans votre parcours opérationnel.</p>
+        </div>
+    </div>
+</section>
+
+<!-- JS scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
