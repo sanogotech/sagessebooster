@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 Sagesses pour Transformer votre Mentalité</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --success: #00b894;
+            --info: #0984e3;
+            --warning: #fdcb6e;
+            --danger: #d63031;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background-size: cover;
+        }
+        
+        .wisdom-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            background: white;
+        }
+        
+        .wisdom-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .wisdom-card .card-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-weight: bold;
+            border-bottom: none;
+            padding: 1.5rem;
+        }
+        
+        .wisdom-card .card-body {
+            padding: 2rem;
+        }
+        
+        .wisdom-point {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .wisdom-point::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .category-badge {
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .nav-pills .nav-link.active {
+            background-color: var(--primary);
+        }
+        
+        .nav-pills .nav-link {
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+        }
+        
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 999;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="particles" id="particles-js"></div>
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">20 Sagesses pour Transformer votre Mentalité</h1>
+                    <p class="lead mb-5 animate__animated animate__fadeInUp animate__delay-1s">Des pépites de sagesse que j'aurais aimé découvrir il y a 15 ans</p>
+                    <div class="animate__animated animate__fadeInUp animate__delay-2s">
+                        <a href="#wisdoms" class="btn btn-light btn-lg px-4 me-2">Découvrir</a>
+                        <a href="#categories" class="btn btn-outline-light btn-lg px-4">Explorer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Navigation -->
+    <section id="categories" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold highlight-text">Catégories de Sagesses</h2>
+                <p class="text-muted">Explorez par thème</p>
+            </div>
+            
+            <ul class="nav nav-pills justify-content-center mb-5" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab">Toutes</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-mindset-tab" data-bs-toggle="pill" data-bs-target="#pills-mindset" type="button" role="tab">Mindset</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-productivity-tab" data-bs-toggle="pill" data-bs-target="#pills-productivity" type="button" role="tab">Productivité</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-growth-tab" data-bs-toggle="pill" data-bs-target="#pills-growth" type="button" role="tab">Croissance</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-psychology-tab" data-bs-toggle="pill" data-bs-target="#pills-psychology" type="button" role="tab">Psychologie</button>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Wisdoms Section -->
+    <section id="wisdoms" class="py-5">
+        <div class="container">
+            <div class="tab-content" id="pills-tabContent">
+                <!-- All Wisdoms -->
+                <div class="tab-pane fade show active" id="pills-all" role="tabpanel">
+                    <div class="row">
+                        <!-- Wisdom 1 -->
+                        <div class="col-lg-6" data-category="mindset productivity">
+                            <div class="wisdom-card animate__animated animate__fadeIn">
+                                <div class="card-header">
+                                    <span class="category-badge bg-info">Mindset</span>
+                                    <span class="category-badge bg-success">Productivité</span>
+                                    <h3>1. Laissez votre cerveau respirer</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p class="wisdom-point">Vos meilleures idées arrivent souvent en marchant ou sous la douche ?</p>
+                                    <p class="wisdom-point">C'est normal : vous lâchez enfin les écrans</p>
+                                    <p class="wisdom-point">Marcher aide vraiment à penser plus clairement</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Wisdom 2 -->
+                        <div class="col-lg-6" data-category="mindset growth">
+                            <div class="wisdom-card animate__animated animate__fadeIn">
+                                <div class="card-header">
+                                    <span class="category-badge bg-info">Mindset</span>
+                                    <span class="category-badge bg-warning text-dark">Croissance</span>
+                                    <h3>2. Le plus important, c'est d'essayer</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p class="wisdom-point">Ceux qui réussissent ont tous connu des échecs</p>
+                                    <p class="wisdom-point">Parfois même beaucoup</p>
+                                    <p class="wisdom-point">Le seul véritable échec, est de ne jamais essayer</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Continue with other wisdoms... -->
+                        <!-- Wisdom 3 -->
+                        <div class="col-lg-6" data-category="mindset">
+                            <div class="wisdom-card animate__animated animate__fadeIn">
+                                <div class="card-header">
+                                    <span class="category-badge bg-info">Mindset</span>
+                                    <h3>3. Les moments difficiles viennent avant les bons</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p class="wisdom-point">Après plusieurs galères, vient la réussite</p>
+                                    <p class="wisdom-point">Tenez bon, même quand c'est compliqué</p>
+                                    <p class="wisdom-point">Le meilleur est sur le point d'arriver</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Wisdom 4 -->
+                        <div class="col-lg-6" data-category="psychology growth">
+                            <div class="wisdom-card animate__animated animate__fadeIn">
+                                <div class="card-header">
+                                    <span class="category-badge bg-danger">Psychologie</span>
+                                    <span class="category-badge bg-warning text-dark">Croissance</span>
+                                    <h3>4. "Pour l'instant" change la donne</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p class="wisdom-point">Deux mots qui changent tout</p>
+                                    <p class="wisdom-point">"Pour l'instant, je ne sais pas..."</p>
+                                    <p class="wisdom-point">"Pour l'instant, je ne suis pas prêt..."</p>
+                                    <p class="wisdom-point">Laissez-vous le temps de progresser</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Add more wisdoms following the same pattern... -->
+                    </div>
+                </div>
+                
+                <!-- Mindset Wisdoms -->
+                <div class="tab-pane fade" id="pills-mindset" role="tabpanel">
+                    <div class="row" id="mindset-wisdoms">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Productivity Wisdoms -->
+                <div class="tab-pane fade" id="pills-productivity" role="tabpanel">
+                    <div class="row" id="productivity-wisdoms">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Growth Wisdoms -->
+                <div class="tab-pane fade" id="pills-growth" role="tabpanel">
+                    <div class="row" id="growth-wisdoms">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Psychology Wisdoms -->
+                <div class="tab-pane fade" id="pills-psychology" role="tabpanel">
+                    <div class="row" id="psychology-wisdoms">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h3 class="mb-4">Merci à Michael J. Boorman pour ces pépites</h3>
+                    <p class="mb-4">Ces sagesses auraient changé ma vie si je les avais découvertes il y a 15 ans. J'espère qu'elles vous inspireront autant qu'elles m'ont inspiré.</p>
+                    <div class="social-icons mb-4">
+                        <a href="#" class="text-white mx-2"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-white mx-2"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-white mx-2"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" class="text-white mx-2"><i class="fab fa-linkedin fa-2x"></i></a>
+                    </div>
+                    <p class="small mb-0">© 2023 Sagesses Mentales. Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles.js
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('particles-js')) {
+                particlesJS('particles-js', {
+                    "particles": {
+                        "number": {
+                            "value": 80,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#ffffff"
+                        },
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            },
+                            "polygon": {
+                                "nb_sides": 5
+                            }
+                        },
+                        "opacity": {
+                            "value": 0.5,
+                            "random": false,
+                            "anim": {
+                                "enable": false,
+                                "speed": 1,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true,
+                            "anim": {
+                                "enable": false,
+                                "speed": 40,
+                                "size_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 150,
+                            "color": "#ffffff",
+                            "opacity": 0.4,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 2,
+                            "direction": "none",
+                            "random": false,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": false,
+                                "rotateX": 600,
+                                "rotateY": 1200
+                            }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab"
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push"
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": {
+                                "distance": 140,
+                                "line_linked": {
+                                    "opacity": 1
+                                }
+                            },
+                            "bubble": {
+                                "distance": 400,
+                                "size": 40,
+                                "duration": 2,
+                                "opacity": 8,
+                                "speed": 3
+                            },
+                            "repulse": {
+                                "distance": 200,
+                                "duration": 0.4
+                            },
+                            "push": {
+                                "particles_nb": 4
+                            },
+                            "remove": {
+                                "particles_nb": 2
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+            
+            // Animate cards on scroll
+            const wisdomCards = document.querySelectorAll('.wisdom-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate__fadeInUp');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {threshold: 0.1});
+            
+            wisdomCards.forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Filter wisdoms by category
+            function filterWisdoms(category) {
+                const allWisdoms = document.querySelectorAll('#pills-all .col-lg-6');
+                const targetContainer = document.getElementById(`${category}-wisdoms`);
+                
+                targetContainer.innerHTML = '';
+                
+                allWisdoms.forEach(wisdom => {
+                    if (wisdom.getAttribute('data-category').includes(category)) {
+                        const clone = wisdom.cloneNode(true);
+                        targetContainer.appendChild(clone);
+                        
+                        // Re-initialize animation for cloned elements
+                        const clonedCard = clone.querySelector('.wisdom-card');
+                        clonedCard.classList.remove('animate__animated', 'animate__fadeIn');
+                        setTimeout(() => {
+                            clonedCard.classList.add('animate__animated', 'animate__fadeIn');
+                        }, 10);
+                    }
+                });
+            }
+            
+            // Initialize filtered tabs
+            const categoryTabs = ['mindset', 'productivity', 'growth', 'psychology'];
+            categoryTabs.forEach(category => {
+                filterWisdoms(category);
+            });
+        });
+    </script>
+</body>
+</html>
